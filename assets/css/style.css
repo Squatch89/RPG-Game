@@ -1,0 +1,50 @@
+
+
+
+
+
+
+#selection-area
+{
+    width: 100%;
+    height: 25%;
+    background-color: aqua;
+}
+
+#char1
+{
+
+}
+
+#char2
+{
+
+}
+
+#char3
+{
+
+}
+
+#char4
+{
+
+}
+
+#attack-area
+{
+
+}
+
+#attack-btn
+{
+    background-color: darkred;
+    color: white;
+}
+
+#defenders-area
+{
+    width: 100%;
+    height: 50%;
+    background-color: sandybrown;
+}
