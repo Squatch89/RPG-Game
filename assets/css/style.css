@@ -1,14 +1,62 @@
+html
+{
+    width: 100%;
+    height: 100%;
+}
 
+body
+{
+    background-image: url("../images/StarWarsBG.jpg");
+    width: 100%;
+    height: 100%;
+    margin: 5px;
+}
 
+h1
+{
+    clear: both;
+    font-size: 36px;
+    color: white;
+}
 
+.characters
+{
+    width: 150px;
+    height: 150px;
+    padding-left: 12px
+}
 
+.charContainer
+{
+    width: 175px;
+    height: 175px;
+    padding: 15px;
+    border: 2px solid green;
+    margin: 15px;
+    z-index: 1;
+    float: left;
+    position: relative;
+    background-color: black;
+}
+
+.name, .health
+{
+    z-index: 10;
+    color: white;
+    padding-left: 65px;
+}
+
+#captainPhasma
+{
+    padding-left: 40px;
+}
 
 
 #selection-area
 {
     width: 100%;
-    height: 25%;
-    background-color: aqua;
+    height: auto;
+    /*background-color: #d6bf81;*/
 }
 
 #char1
@@ -33,18 +81,28 @@
 
 #attack-area
 {
-
+    /*background-color: #ac7033;*/
+    clear: both;
+    margin: 15px;
+    
 }
 
 #attack-btn
 {
-    background-color: darkred;
+    background-color: #b7000c;
     color: white;
+    
 }
 
 #defenders-area
 {
     width: 100%;
     height: 50%;
-    background-color: sandybrown;
+    /*background-color: #ac7033;*/
+    clear: both;
+    margin: 15px;
+    
 }
+
+#reset
+
