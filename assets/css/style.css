@@ -23,7 +23,7 @@ h1
 {
     width: 150px;
     height: 150px;
-    padding-left: 12px
+    padding-left: 12px;
 }
 
 .charContainer
@@ -37,6 +37,20 @@ h1
     float: left;
     position: relative;
     background-color: black;
+}
+
+.selectedCharContainer
+{
+    width: 175px;
+    height: 175px;
+    padding: 15px;
+    border: 2px solid green;
+    margin: 15px;
+    z-index: 1;
+    float: left;
+    position: relative;
+    background-color: black;
+}
 }
 
 .name, .health
