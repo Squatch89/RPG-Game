@@ -1,5 +1,6 @@
 $("#attack-btn").hide();
 $(".gameText").hide();
+$("#reset").hide();
 
 $(document).ready( function() {
     var attack;
@@ -62,6 +63,7 @@ $(document).ready( function() {
             //
             // else if (charChosen hp = 0){
             //     reset game
+            //     $("#reset").show();
             // }
             
         }
