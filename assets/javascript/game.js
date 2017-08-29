@@ -5,6 +5,7 @@ $(document).ready( function() {
     var charChosen;
     var charSelected = false;
     var defChosen;
+    var defSelected = false;
     
     
     
@@ -15,17 +16,29 @@ $(document).ready( function() {
                 var yourChar = this.id;
                 charChosen = yourChar;
                 charSelected = true;
-                if (charChosen === yourChar) {
-                    $("#" + yourChar).removeClass("charContainer").addClass("selectedCharContainer").appendTo("#yourChar");
-                }
-                console.log(charSelected);
-                if (charSelected === true) {
-                    $(".charContainer").appendTo("#defenders-area");
-                }
+                    if (charChosen === yourChar) {
+                        $("#" + yourChar).removeClass("charContainer").addClass("selectedCharContainer").appendTo("#yourChar");
+                    }
+                    console.log(charSelected);
+                    if (charSelected === true) {
+                        $(".charContainer").removeClass("charContainer").addClass("defenderContainer").appendTo("#defenders");
+                    }
             }
+    
+            $(".defenderContainer").on("click", function () {
+                if (defSelected === false) {
+                    var yourOp = this.id;
+                    defChosen = yourOp;
+                    defSelected = true;
+                    if (defChosen === yourOp) {
+                        $("#" + yourOp).appendTo("#opponent");
+                    }
+                }
+            })
         });
     
-       
+   
+    
     
     
  
