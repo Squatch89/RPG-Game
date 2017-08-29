@@ -79,9 +79,15 @@ h1
 
 #selection-area
 {
-    width: 100%;
+    width: 75%;
+    margin: auto;
     height: auto;
     /*background-color: #d6bf81;*/
+}
+
+#selection-area h1
+{
+    text-align: center;
 }
 
 #char1

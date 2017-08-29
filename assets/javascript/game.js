@@ -1,3 +1,6 @@
+$("#attack-btn").hide();
+$(".gameText").hide();
+
 $(document).ready( function() {
     var attack;
     var hp;
@@ -6,12 +9,14 @@ $(document).ready( function() {
     var charSelected = false;
     var defChosen;
     var defSelected = false;
-    
+   
     
     
     //select your character and then move other characters into the enemy section
     
         $(".charContainer").on("click", function () {
+            $(".gameText").show();
+            $("#selectChar").hide();
             if (charSelected === false) {
                 var yourChar = this.id;
                 charChosen = yourChar;
@@ -19,7 +24,6 @@ $(document).ready( function() {
                     if (charChosen === yourChar) {
                         $("#" + yourChar).removeClass("charContainer").addClass("selectedCharContainer").appendTo("#yourChar");
                     }
-                    console.log(charSelected);
                     if (charSelected === true) {
                         $(".charContainer").removeClass("charContainer").addClass("defenderContainer").appendTo("#defenders");
                     }
@@ -32,16 +36,40 @@ $(document).ready( function() {
                     defSelected = true;
                     if (defChosen === yourOp) {
                         $("#" + yourOp).appendTo("#opponent");
+                        $("#attack-btn").show();
                     }
                 }
-            })
+            });
+            
         });
     
-   
+    $("#attack-btn").on("click", function () {
+        if ( (charSelected !== true) || (defSelected !== true) ) {
+            console.log("there's no opponent yet");
+        }
+        else if ( (charSelected === true) && (defSelected === true) ) {
+            console.log("i clicked the attack btn");
+            
+            // charChosen attacks defChosen
+            // defChosen counterattacks charChosen
+            // attack += attack; for charChosen
+            // defChosen hp - attack
+            // charChosen hp - attack
+            //
+            // if (defChosen hp = 0){
+            //     defSelected = false;
+            // }
+            //
+            // else if (charChosen hp = 0){
+            //     reset game
+            // }
+            
+        }
     
+    });
     
+
     
- 
     
     //generate hp attack power and counter attack power for all four characters
     
