@@ -3,9 +3,6 @@ $(".gameText").hide();
 $("#reset").hide();
 
 $(document).ready( function() {
-    var attack;
-    var hp;
-    var counterAttack;
     var charChosen;
     var charSelected = false;
     var defChosen;
@@ -19,6 +16,17 @@ $(document).ready( function() {
         char4: [{attack: 12,  hp: 250, counterAttack: 15}]
     };
     
+    //reset function
+    // function reset() {
+    //     charChosen;
+    //     charSelected = false;
+    //     defChosen;
+    //     defSelected = false;
+    //     $("#char1Health").html(charObject.char1[0].hp);
+    //     $("#char2Health").html(charObject.char2[0].hp);
+    //     $("#char3Health").html(charObject.char3[0].hp);
+    //     $("#char4Health").html(charObject.char4[0].hp);
+    // }
     
     //displays the characters health
     $("#char1Health").html(charObject.char1[0].hp);
@@ -27,7 +35,6 @@ $(document).ready( function() {
     $("#char4Health").html(charObject.char4[0].hp);
     
     //select your character and then move other characters into the defender section
-    
         $(".charContainer").on("click", function () {
             $(".gameText").show();
             $("#selectChar").hide();
@@ -50,7 +57,6 @@ $(document).ready( function() {
                         $(".charContainer").removeClass("charContainer").addClass("defenderContainer").appendTo("#defenders");
                     }
             }
-            
             $(".defenderContainer").on("click", function () {
                 if (defSelected === false) {
                     var yourOp = this.id;
@@ -58,7 +64,7 @@ $(document).ready( function() {
                     defSelected = true;
                     if (defChosen === yourOp) {
                         
-                        //have selected enemy move into the opponent area and changes the opponent's id to opponent specific ones
+                        //have selected enemy move into the opponent area
                         $("#" + yourOp).appendTo("#opponent");
                         
                         //assigns the value from charObject to defChosen
@@ -78,40 +84,33 @@ $(document).ready( function() {
             console.log("there's no opponent yet");
         }
         else if ( (charSelected === true) && (defSelected === true) ) {
-            console.log("i clicked the attack btn");
     
             defChosen[0].hp -= charChosen[0].attack;
-            console.log(defChosen[0].hp + " this is the defenders hp");
-            $(".defenderContainer").find(".health").html(defChosen[0].hp);
+            $("#defender-area").find(".health").html(defChosen[0].hp);
     
     
             //charChosen attacks defChosen
-            console.log(charChosen[0].attack + " this is the starting attack power");
             charChosen[0].attack += charChosen[0].attack;
             console.log(charChosen[0].attack + " this is the added attack power");
     
     
-            //defChosen counterattacks charChosen
-            charChosen[0].hp -= defChosen[0].counterAttack;
-            console.log(charChosen[0].hp + " this is the new hp of my character");
-            $(".selectedCharContainer").find(".health").html(charChosen[0].hp);
-            
-          
-            
-            
-            //
-            // if (defChosen hp = 0){
-            //     defSelected = false;
-            // }
-            //
-            // else if (charChosen hp = 0){
-            //     reset game
-            //     $("#reset").show();
-            // }
+            if (defChosen[0].hp >= 0) {
+                //defChosen counterattacks charChosen
+                charChosen[0].hp -= defChosen[0].counterAttack;
+                $(".selectedCharContainer").find(".health").html(charChosen[0].hp);
+            }
             
         }
     
+        if ( (defChosen[0].hp <= 0) ) {
+            defSelected = false;
+            $("#defender-area").remove();
+        }
+        else if (charChosen[0].hp <= 0) {
+            $("#reset").show();
+        }
     });
+    
     
     //have character player attack (and increase attack power by attack power every time) have enemy counter attack automatically
     
