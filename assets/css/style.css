@@ -151,8 +151,22 @@ h1
     text-align: center;
 }
 
+#gameOver
+{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#gameOverText,
+{
+    font-size: 38px
+}
+
 #reset
 {
-
+    background-color: #0088e2;
+    text-align: center;
+    font-size: 24px;
 }
 
