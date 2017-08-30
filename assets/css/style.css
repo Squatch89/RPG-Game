@@ -71,6 +71,13 @@ h1
     padding-left: 65px;
 }
 
+.opponentHealth
+{
+    z-index: 10;
+    color: white;
+    padding-left: 65px;
+}
+
 #captainPhasma
 {
     padding-left: 40px;
