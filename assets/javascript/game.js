@@ -10,6 +10,7 @@ $(document).ready( function() {
     var yourOp;
     var defChosen;
     var defSelected = false;
+    var wins = 0;
     
     //assign attack hp and counterAttack to each character
     var charObject = {
@@ -97,6 +98,10 @@ $(document).ready( function() {
             if ( (defChosen[0].hp <= 0) ) {
                 defSelected = false;
                 $("#opponent").empty();
+                wins++;
+                if (wins === 3) {
+                    $("#reset").show();
+                }
             }
             else if (charChosen[0].hp <= 0) {
                 $("#yourChar").hide();
