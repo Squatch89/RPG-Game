@@ -32,6 +32,7 @@ $(document).ready(function () {
 
 //select your character and then move other characters into the defender section
 $(".charContainer").on("click", function () {
+    debugger;
     $(".gameText").show();
     $("#selectChar").hide();
     
@@ -50,30 +51,37 @@ $(".charContainer").on("click", function () {
             charChosen = charObject[charChosen];
             console.log(charChosen);
         }
-    }
-    else {
-        console.log("defender chosen");
         //move remaining characters into defenders selection area
         $(".charContainer").removeClass("charContainer").addClass("defenderContainer").appendTo("#defenders");
-        if (defSelected === false) {
-            yourOp = this.id
-            console.log(yourOp);
-            defChosen = yourOp;
-            defSelected = true;
-            
-            if (defChosen === yourOp) {
-                
-                //have selected enemy move into the opponent area
-                $("#" + yourOp).appendTo("#opponent");
-                
-                //assigns the value from charObject to defChosen
-                defChosen = charObject[defChosen];
-                
-                console.log(defChosen);
-                $("#attack-btn").show();
-            }
-        }
     }
+    // Event Delegation
+    else {
+        console.log("defender chosen");
+      
+        //select your opponent
+        $(document).on("click", ".defenderContainer", function () {
+            if (defSelected === false) {
+                yourOp = this.id
+                console.log(yourOp);
+                defChosen = yourOp;
+                defSelected = true;
+                
+                if (defChosen === yourOp) {
+                    
+                    //have selected enemy move into the opponent area
+                    $("#" + yourOp).appendTo("#opponent");
+                    
+                    //assigns the value from charObject to defChosen
+                    defChosen = charObject[defChosen];
+                    
+                    console.log(defChosen);
+                    $("#attack-btn").show();
+                }
+            }
+        });
+    }
+    
+    
 });
 
 $("#attack-btn").on("click", function () {
