@@ -158,7 +158,7 @@ h1
     text-align: center;
 }
 
-#gameOverText,
+#gameOverText, #youWinText
 {
     font-size: 38px
 }
